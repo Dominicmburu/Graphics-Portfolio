@@ -19,12 +19,12 @@ const About = () => {
   ];
 
   const socialLinks = [
-    { icon: 'bi-linkedin', url: 'https://linkedin.com', color: '#0077b5' },
-    { icon: 'bi-instagram', url: 'https://instagram.com', color: '#E4405F' },
-    { icon: 'bi-behance', url: 'https://behance.net', color: '#1769ff' },
-    { icon: 'bi-dribbble', url: 'https://dribbble.com', color: '#ea4c89' },
-    { icon: 'bi-github', url: 'https://github.com', color: '#333' },
-    { icon: 'bi-twitter', url: 'https://twitter.com', color: '#1DA1F2' }
+    { icon: 'bi-linkedin', url: 'https://www.linkedin.com/in/stephen-mburu-gathima-4a943737a', color: '#0A66C2' },
+    { icon: 'bi-instagram', url: 'https://www.instagram.com/stephengathima/', color: '#E4405F' },
+    { icon: 'bi-tiktok', url: 'https://www.tiktok.com/@stephen_gathima?_r=1&_t=ZM-91hQLpIhceS', color: '#000000' },
+    { icon: 'bi-facebook', url: 'https://www.facebook.com/stephenson.sonitek/', color: '#1877F2' },
+    { icon: 'bi-github', url: 'https://github.com/stevegathi', color: '#181717' },
+    { icon: 'bi-x', url: 'https://x.com/wagathi_?t=n9VRENNr5PcIxHfceAIB3g&s=09', color: '#000000' }
   ];
 
   return (
@@ -40,7 +40,12 @@ const About = () => {
               animation: 'pulse 3s ease-in-out infinite'
             }}
           >
-            <i className="bi bi-person-fill text-white" style={{ fontSize: '100px' }}></i>
+            <img 
+              src="images/steve.jpg" 
+              alt="Stephen Gathima"
+              className="rounded-circle border border-white"
+              style={{ width: '180px', height: '180px', objectFit: 'cover' }}
+            />
           </div>
           
           <h3 className="mt-4 text-dark fw-bold">Stephen Gathima</h3>

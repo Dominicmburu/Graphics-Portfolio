@@ -9,8 +9,18 @@ const Home = () => {
   return (
     <Artboard>
       <div className="text-center">
-        <div className="mb-4" style={{ animation: 'float 3s ease-in-out infinite' }}>
-          <i className="bi bi-palette-fill text-primary" style={{ fontSize: '80px' }}></i>
+        <div className="mb-4 d-flex justify-content-center" style={{ animation: 'float 3s ease-in-out infinite' }}>
+          <img 
+            src="/images/steve1.png" 
+            alt="Designer Logo" 
+            className="img-fluid"
+            style={{ 
+              width: '250px', 
+              height: '250px',
+              maxWidth: '100%',
+              objectFit: 'contain'
+            }} 
+          />
         </div>
         
         <h1 className="fw-bold mb-3 text-dark" style={{ fontSize: 'clamp(36px, 8vw, 64px)' }}>

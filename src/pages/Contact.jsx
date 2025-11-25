@@ -11,6 +11,7 @@ const Contact = () => {
   
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,42 +20,58 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(false);
     
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setSubmitted(true);
-      setIsSubmitting(false);
+    try {
+      const response = await fetch('https://formspree.io/f/xqaowqpn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
       
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      }, 3000);
-    }, 1000);
+      if (response.ok) {
+        setSubmitted(true);
+        setIsSubmitting(false);
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', subject: '', message: '' });
+        }, 3000);
+      } else {
+        setError(true);
+        setIsSubmitting(false);
+      }
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError(true);
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     { 
       icon: 'bi-envelope-fill', 
       title: 'Email', 
-      value: 'hello@designer.com',
-      link: 'mailto:hello@designer.com'
+      value: 'gathimasteve@gmail.com',
+      link: 'mailto:gathimasteve@gmail.com'
     },
     { 
       icon: 'bi-telephone-fill', 
       title: 'Phone', 
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: '+254799003963',
+      link: 'tel:+254799003963'
     },
     { 
       icon: 'bi-geo-alt-fill', 
       title: 'Location', 
-      value: 'New York, USA',
-      link: 'https://maps.google.com/?q=New+York'
+      value: 'Nairobi,  kenya',
+      link: 'https://maps.google.com/?q=Nairobi'
     }
   ];
 
@@ -76,6 +93,13 @@ const Contact = () => {
             <Alert variant="success" className="mb-4">
               <i className="bi bi-check-circle-fill me-2"></i>
               Thank you! Your message has been sent successfully.
+            </Alert>
+          )}
+
+          {error && (
+            <Alert variant="danger" className="mb-4">
+              <i className="bi bi-exclamation-circle-fill me-2"></i>
+              Failed to send message. Please try again or email directly.
             </Alert>
           )}
 

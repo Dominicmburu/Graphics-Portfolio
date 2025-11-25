@@ -47,13 +47,10 @@ const TopMenuBar = ({ onToggleLayers }) => {
           ))}
         </div>
         
-        {/* Mobile Menu Button */}
-        <button 
-          className="btn btn-sm btn-outline-light d-md-none ms-2"
-          onClick={onToggleLayers}
-        >
-          <i className="bi bi-list"></i>
-        </button>
+        {/* Mobile Name Display */}
+        <span className="d-md-none text-white fw-semibold">
+          Stephen Gathima
+        </span>
       </div>
       
       <div className="ms-auto d-flex align-items-center gap-3">
